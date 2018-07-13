@@ -1,0 +1,29 @@
+### Compile the C code and load it automatically in R when loading the lib
+
+useDynLib(Pasha, .registration = TRUE)
+
+
+### Imports
+
+import(IRanges)
+import(GenomicAlignments)
+import(Biostrings)
+import(GenomicRanges)
+import(Rsamtools)
+import(ShortRead)
+#import(GenomeInfoDb)
+import(methods)
+import(gtools) # mixedorder
+import(S4Vectors) # Rle, metadata, metadata<-, runValue, runLength
+
+
+importFrom(parallel, mclapply, mcmapply)
+importFrom(bitops, bitAnd)
+importFrom(tools, md5sum) # for functional tests
+
+
+### Exports
+
+# Export all
+exportClassPattern("^.*$")
+exportPattern("^[^\\.C]")
